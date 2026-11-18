@@ -1,0 +1,5 @@
+ai-check/
+*.cleaned.*
+*.docx
+*.pdf
+__pycache__/
