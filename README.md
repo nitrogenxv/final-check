@@ -13,13 +13,23 @@
 
 > Ο έλεγχος δεν αποδεικνύει ότι η εργασία είναι «human» και δεν προβλέπει Turnitin/GPTZero. Έλεγξε και τους κανόνες του μαθήματος για δήλωση χρήσης AI.
 
+## Γρήγορη εγκατάσταση (με το Claude)
+
+Άνοιξε το Claude Code και γράψε:
+
+```
+Εγκατέστησε αυτό: https://github.com/nitrogenxv/final-check
+```
+
+Το Claude διαβάζει το [INSTALL.md](INSTALL.md) και κάνει όλα τα βήματα. Εσύ μετά κλείνεις και ξανανοίγεις το Claude Code και ανοίγεις το Docker Desktop.
+
 ## Τι χρειάζεσαι
 
 - Windows, [Claude Code](https://claude.com/claude-code), Python 3, Git
 - [Docker Desktop](https://www.docker.com/products/docker-desktop/) (ανοιχτό όταν τρέχεις τον έλεγχο)
 - Το skill `ai-detector-check` του Claude (για την καρτέλα κειμένου). Χωρίς αυτό δουλεύει μόνο ο έλεγχος μεταδεδομένων.
 
-## Εγκατάσταση
+## Χειροκίνητη εγκατάσταση
 
 ```powershell
 git clone <URL αυτού του repo> final-check
@@ -35,6 +45,7 @@ powershell -ExecutionPolicy Bypass -File install.ps1
 
 | Αρχείο | Τι κάνει |
 |---|---|
+| `INSTALL.md` | Οδηγίες για το Claude: εγκατάσταση από το link |
 | `skill/SKILL.md` | Η εντολή `/final-check` για το Claude Code |
 | `meta_check.py` | Στέλνει το αρχείο στην τοπική υπηρεσία (127.0.0.1:8765), κάνει inspect + clean σε αντίγραφο, γράφει `cleaning-visual.html` |
 | `combine.py` | Ενώνει τα δύο reports σε ένα HTML με καρτέλες |

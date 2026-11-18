@@ -1,5 +1,7 @@
 # Εγκατάσταση: skill στο Claude Code + μεταβλητή περιβάλλοντος + κλώνος του watermarks-remover.
 $ErrorActionPreference = "Stop"
+foreach ($t in "git", "python") { if (-not (Get-Command $t -ErrorAction SilentlyContinue)) { throw "Λείπει το $t. Εγκατάστησέ το και ξανατρέξε." } }
+if (-not (Get-Command docker -ErrorAction SilentlyContinue)) { Write-Warning "Δεν βρέθηκε το Docker. Χρειάζεται το Docker Desktop για τον έλεγχο μεταδεδομένων." }
 $repo = $PSScriptRoot
 $skills = Join-Path $env:USERPROFILE ".claude\skills\final-check"
 New-Item -ItemType Directory -Force $skills | Out-Null
