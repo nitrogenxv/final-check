@@ -39,6 +39,6 @@ The text-reading tab needs the Claude skill `ai-detector-check` (not part of thi
 ## 6. Tell the user
 
 - Close and reopen Claude Code so the skill and variables load.
-- Open Docker Desktop before the first check. The first run builds the local service and takes a few minutes.
+- Docker Desktop must be installed. The check starts Docker Desktop and the local service by itself if they are stopped; the very first run builds the service and takes a few minutes.
 - Usage: `/final-check "C:\path\to\report.docx"`
 - The check is not proof of authorship; they should also check whether their course requires disclosing AI use.

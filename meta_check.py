@@ -16,10 +16,27 @@ def health():
     except Exception:
         return False
 
+def engine_up():
+    try: return subprocess.run(["docker", "info"], capture_output=True, timeout=30).returncode == 0
+    except Exception: return False
+
+def ensure_engine():
+    """If Docker is installed but the engine is stopped, start Docker Desktop and wait for it."""
+    if engine_up(): return
+    for base in (os.environ.get("ProgramFiles"), os.path.join(os.environ.get("LOCALAPPDATA", ""), "Programs")):
+        exe = os.path.join(base or "", "Docker", "Docker", "Docker Desktop.exe")
+        if os.path.exists(exe):
+            print("Ξεκινώ το Docker Desktop / Starting Docker Desktop ...")
+            subprocess.Popen([exe]); break
+    for _ in range(90):
+        if engine_up(): return
+        time.sleep(2)
+
 def ensure_service():
     if health(): return
-    print("Η υπηρεσία δεν απαντά, δοκιμάζω docker compose up -d ... / Service down, trying docker compose up -d ...")
-    try: subprocess.run(["docker", "compose", "up", "-d"], cwd=COMPOSE_DIR, timeout=300)
+    ensure_engine()
+    print("Η υπηρεσία δεν απαντά, δοκιμάζω docker compose up -d (την πρώτη φορά χτίζει, παίρνει λίγα λεπτά) ... / Service down, running docker compose up -d (first run builds, takes a few minutes) ...")
+    try: subprocess.run(["docker", "compose", "up", "-d"], cwd=COMPOSE_DIR, timeout=1800)
     except Exception as e: print("docker:", e)
     for _ in range(60):
         if health(): return

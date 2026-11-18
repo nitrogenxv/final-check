@@ -21,12 +21,12 @@
 Εγκατέστησε αυτό: https://github.com/nitrogenxv/final-check
 ```
 
-Το Claude διαβάζει το [INSTALL.md](INSTALL.md) και κάνει όλα τα βήματα. Εσύ μετά κλείνεις και ξανανοίγεις το Claude Code και ανοίγεις το Docker Desktop.
+Το Claude διαβάζει το [INSTALL.md](INSTALL.md) και κάνει όλα τα βήματα. Εσύ μετά κλείνεις και ξανανοίγεις το Claude Code και έτοιμο. Το Docker Desktop και η υπηρεσία ξεκινούν μόνα τους στον πρώτο έλεγχο (αρκεί να είναι εγκατεστημένο το Docker).
 
 ## Τι χρειάζεσαι
 
 - Windows, [Claude Code](https://claude.com/claude-code), Python 3, Git
-- [Docker Desktop](https://www.docker.com/products/docker-desktop/) (ανοιχτό όταν τρέχεις τον έλεγχο)
+- [Docker Desktop](https://www.docker.com/products/docker-desktop/) εγκατεστημένο (ξεκινά αυτόματα όταν χρειαστεί)
 - Το skill `ai-detector-check` του Claude (για την καρτέλα κειμένου). Χωρίς αυτό δουλεύει μόνο ο έλεγχος μεταδεδομένων.
 
 ## Χειροκίνητη εγκατάσταση
